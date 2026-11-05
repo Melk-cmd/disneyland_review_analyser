@@ -1,0 +1,13 @@
+name: disneyland_review_analyser
+
+docker_env:
+  image: disneyland-review-analyser
+
+entry_points:
+  main:
+    parameters:
+      C: {type: float, default: 1.0}
+      max_features: {type: int, default: 5000}
+      ngram_max: {type: int, default: 2}
+      balanced: {type: int, default: 0}
+    command: "python train.py --C {C} --max_features {max_features} --ngram_max {ngram_max} --balanced {balanced}"
